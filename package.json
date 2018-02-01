@@ -1,0 +1,23 @@
+{
+  "name": "react_beginner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others \"npm run server\" \"npm run webpack\"",
+    "server": "node server.js",
+    "webpack": "webpack -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "webpack": "^4.0.0-beta.0",
+    "webpack-cli": "^2.0.4"
+  }
+}
