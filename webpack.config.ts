@@ -13,7 +13,7 @@ module.exports = [
     },
     resolve: {
       // Add `.ts` and `.tsx` as a resolvable extension.
-      extensions: ['.ts', '.tsx', '.js']
+      extensions: ['.ts', '.tsx', '.js', '.scss']
     },  
     module: {
       rules: [
@@ -24,6 +24,11 @@ module.exports = [
               loader: 'ts-loader'
             }
           ]
+        },
+        { 
+          test: /\.scss$/, 
+          // loaders: ['style-loader', 'css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]', 'postcss-loader', 'sass-loader']
+          loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
         }
       ]
     }
