@@ -5,13 +5,11 @@ interface IArticleList {
     articles: any[]
 }
 
-export class ArticleList extends React.Component<IArticleList>  {
-    
-    render() {
-        return (
-            (this.props.articles as any[]).map(article => {
-                return <Article key={article.id} article={article} />
-            })
-        )
-    }
-}
+export const ArticleList = (props:IArticleList) => {
+    const articles = props.articles.map((article:any, index:number) => {
+        return <Article key={article.id} article={article} isOpen={index===0} />;
+    });
+    return (<>
+    {...articles}
+    </>);
+};
