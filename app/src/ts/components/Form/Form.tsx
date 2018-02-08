@@ -8,7 +8,7 @@ export class Form extends React.Component {
     render() {
         return <>
             <label htmlFor="">
-                Name: <input type="text" value={this.state.username} onChange={this.handleUserChange}/>{this.state.username}
+                Name: <input type="text" value={this.state.username} onChange={this.handleUserChange}/>{this.state.username} 
             </label>
         </>
     }
