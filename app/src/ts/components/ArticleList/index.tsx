@@ -1,15 +1,23 @@
 import React from 'react';
-import {Article} from '../Article/index';
+import { Article } from '../Article/index';
+import accordion from '../../decorators/accordion';
 
 interface IArticleList {
-    articles: any[]
+    articles: any[];
+    openAccordion: Function;
+    currentId: any;
 }
 
-export const ArticleList = (props:IArticleList) => {
-    const articles = props.articles.map((article:any, index:number) => {
-        return <Article key={article.id} article={article} isOpen={index===0} />;
+const ArticleListOrigin = (props: IArticleList) => {
+    const articles = props.articles.map((article: any, index: number) => {
+        return <Article key={article.id}
+            article={article}
+            isOpen={article.id === props.currentId}
+            toggleOpen={props.openAccordion(article.id)} />;
     });
     return (<>
-    {...articles}
-    </>);
+        {...articles}
+        </>);
 };
+
+export const ArticleList = accordion(ArticleListOrigin);
