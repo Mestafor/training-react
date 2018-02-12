@@ -1,4 +1,5 @@
 import React from 'react';
+import { articles } from '../components/data';
 
 interface IAccordion {
     articles: any[];
@@ -7,7 +8,7 @@ interface IAccordion {
 export default (OriginalComponent:any) => class Accordion extends React.Component<IAccordion> {
 
     state = {
-        currentId: null
+        currentId: this.props.articles[0].id
     }
 
     render() {
