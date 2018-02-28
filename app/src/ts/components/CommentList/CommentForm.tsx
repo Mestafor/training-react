@@ -6,11 +6,12 @@ const errorStyle = {
 
 export default class CommentForm extends React.Component {
 
+    static nameErrorMessage = '(name length < 5 || naem length > 15)';
+    static textErrorMessage = '(text length < 20 || text length > 50)';
+
     state = {
         nameErrorStatus: false,
-        nameErrorMessage: '(name length < 5 || naem length > 15)',
-        textErrorStatus: false,
-        textErrorMessage: '(text length < 20 || text length > 50)'
+        textErrorStatus: false
     }
 
     render() {
@@ -21,11 +22,11 @@ export default class CommentForm extends React.Component {
             User name:
             <input style={nameError ? errorStyle : {}} type="text" ref="name" name="name" onChange={this.onChangeName} />
             <br/>
-            {nameError ? this.state.nameErrorMessage : ''}
+            {nameError ? CommentForm.nameErrorMessage : ''}
             </label>
             <br/>
             <textarea style={textError ? errorStyle : {}} name="text" onChange={this.onChangeText} /><br/>
-            {this.state.textErrorStatus ? this.state.textErrorMessage : ''}
+            {this.state.textErrorStatus ? CommentForm.textErrorMessage : ''}
         </form>
     }
 

@@ -7,6 +7,8 @@ import { CommentList } from '../CommentList/index';
 import './article.scss';
 const ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
+import { connect } from 'react-redux';
+import { deleteArticle } from '../../../AC/index';
 
 interface IArticle {
     isOpen: boolean;
@@ -17,6 +19,7 @@ interface IArticle {
         id: any;
     };
     toggleOpen: any;
+    deleteArticle: Function;
 }
 
 const style = {
@@ -48,6 +51,7 @@ class ArticleOriginal extends React.Component<IArticle> {
         const props = this.props;
         return <article>
             <h1 /*style={props.isOpen ? style : {'cursor': 'pointer'}}*/ onClick={props.toggleOpen}>{props.article.title}</h1>
+            <button onClick = {this.handleDelete}>Delete me</button>
             <ReactCSSTransitionGroup
                 component="div"
                 transitionName="article"
@@ -64,6 +68,11 @@ class ArticleOriginal extends React.Component<IArticle> {
             </ReactCSSTransitionGroup>
         </article>
     }
+
+    handleDelete = () => {
+        console.log('Delete');
+        this.props.deleteArticle(this.props.article.id);
+    }
 }
 
-export const Article = ArticleOriginal;
+export const Article = connect(null, {deleteArticle})(ArticleOriginal);

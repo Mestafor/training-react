@@ -2,6 +2,9 @@ import React from 'react';
 import { Article } from '../Article/index';
 import accordion from '../../decorators/accordion';
 
+import { connect } from 'react-redux';
+import { deleteArticle } from '../../../AC/index';
+
 interface IArticleList {
     articles: any[];
     openAccordion: Function;
@@ -20,4 +23,6 @@ const ArticleListOrigin = (props: IArticleList) => {
         </>);
 };
 
-export const ArticleList = accordion(ArticleListOrigin);
+export const ArticleList = connect((state:any) => ({
+    articles: state.articles
+}))(accordion(ArticleListOrigin));

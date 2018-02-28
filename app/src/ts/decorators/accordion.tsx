@@ -2,13 +2,13 @@ import React from 'react';
 import { articles } from '../components/data';
 
 interface IAccordion {
-    articles: any[];
+    articles?: any[];
 }
 
 export default (OriginalComponent:any) => class Accordion extends React.Component<IAccordion> {
 
     state = {
-        currentId: this.props.articles[0].id
+        currentId: this.props.articles && this.props.articles[0].id
     }
 
     render() {
