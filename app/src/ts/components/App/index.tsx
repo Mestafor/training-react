@@ -11,6 +11,8 @@ import Counter from '../Counter';
 import store from '../../store/index';
 import {Provider} from 'react-redux';
 
+(window as any).store = store;
+
 interface IApp {
   name: string
 }

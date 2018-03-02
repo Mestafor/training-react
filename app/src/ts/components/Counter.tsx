@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { increment, decrement } from '../../AC/index';
 
 interface ICounter {
@@ -12,10 +11,6 @@ interface ICounter {
 }
 
 class Counter extends React.Component<ICounter> {
-
-    static propTypes = {
-        counter: PropTypes.number
-    }
 
     render() {
         return <>
@@ -38,4 +33,4 @@ export default connect((state:any) => ({
 }), {
     increment, 
     decrement
-})(Counter);
+})((Counter as any));

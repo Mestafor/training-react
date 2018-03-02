@@ -1,4 +1,5 @@
 import React from 'react';
+import InlineDatePicker from './DatePicker';
 
 export class Form extends React.Component {
     state = {
@@ -10,6 +11,7 @@ export class Form extends React.Component {
             <label htmlFor="">
                 Name: <input type="text" value={this.state.username} onChange={this.handleUserChange}/>{this.state.username} 
             </label>
+            <InlineDatePicker />
         </>
     }
 

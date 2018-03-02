@@ -1,4 +1,4 @@
-import {INCREMENT, DECREMENT, DELETE_ARTICLE} from './constants';
+import {INCREMENT, DECREMENT, DELETE_ARTICLE, FILTER_ARTICLE_BY_DATA, SET_DATE} from './constants';
 
 export function increment() {
     return {
@@ -17,6 +17,24 @@ export function deleteArticle(id:any) {
         type: DELETE_ARTICLE,
         payload: {
             id
+        }
+    }
+}
+
+export function filterArticleByData(date:any) {
+    return {
+        type: FILTER_ARTICLE_BY_DATA,
+        payload: {
+            date
+        }
+    }
+}
+
+export function setCurrentDate(date:any) {
+    return {
+        type: SET_DATE,
+        payload: {
+            date
         }
     }
 }

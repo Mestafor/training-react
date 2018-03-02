@@ -16,6 +16,7 @@ interface IArticle {
         title: string;
         text: string;
         comments: any[];
+        date: any;
         id: any;
     };
     toggleOpen: any;
@@ -51,6 +52,7 @@ class ArticleOriginal extends React.Component<IArticle> {
         const props = this.props;
         return <article>
             <h1 /*style={props.isOpen ? style : {'cursor': 'pointer'}}*/ onClick={props.toggleOpen}>{props.article.title}</h1>
+            <div>Time: {props.article.date}</div>
             <button onClick = {this.handleDelete}>Delete me</button>
             <ReactCSSTransitionGroup
                 component="div"
@@ -75,4 +77,4 @@ class ArticleOriginal extends React.Component<IArticle> {
     }
 }
 
-export const Article = connect(null, {deleteArticle})(ArticleOriginal);
+export const Article:any = connect(null, {deleteArticle})((ArticleOriginal as any));
