@@ -21,7 +21,7 @@ export function deleteArticle(id:any) {
     }
 }
 
-export function filterArticleByData(date:any) {
+export function filterArticleByDate(date:any) {
     return {
         type: FILTER_ARTICLE_BY_DATA,
         payload: {

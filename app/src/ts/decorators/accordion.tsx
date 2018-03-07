@@ -8,7 +8,7 @@ interface IAccordion {
 export default (OriginalComponent:any) => class Accordion extends React.Component<IAccordion> {
 
     state = {
-        currentId: this.props.articles && this.props.articles[0].id
+        currentId: this.props.articles && this.props.articles.length && this.props.articles[0].id
     }
 
     render() {
