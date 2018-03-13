@@ -64,7 +64,7 @@ class ArticleOriginal extends React.Component<IArticle> {
                 {props.isOpen ? (
                     <div>
                         <p>{props.article.text}</p>
-                        <CommentList comments={props.article.comments} />
+                        <CommentList />
                     </div>
                 ) : ''}
             </ReactCSSTransitionGroup>

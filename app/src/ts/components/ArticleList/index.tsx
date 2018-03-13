@@ -6,10 +6,10 @@ import { connect } from 'react-redux';
 
 import store from '../../store/index';
 
-import { filterArticleByDate } from '../../../AC/index';
+import { setCurrentDate } from '../../../AC/index';
 import currentDate from '../../reducer/currentDate';
 
-import moment from 'moment';
+import {filterArticleSelector} from '../../selectors/index';
 
 interface IArticleList {
     articles: any[];
@@ -29,27 +29,21 @@ const ArticleListOrigin = (props: IArticleList) => {
         />;
     });
     return (<>
-        <button onClick={handleFilter(props)}>Filter by data</button>
+        <button onClick={handleFilterReset(props)}>Show All</button>
         {...articles}
     </>);
 };
 
-function handleFilter(props: any) {
+function handleFilterReset(props: any) {
     return () => {
         console.log('==================================')
         console.log(props.currentDate);
         // props.filterArticleByDate(props.currentDate);
-        props.filterArticleByDate();
+        props.setCurrentDate(null);
         console.log('==================================')
     }
 }
 
 export const ArticleList = connect((state: any) => {
-
-    return {
-        articles: state.articles.filter((article: any) => {
-            return moment(article.date)._d.toDateString() === state.currentDate._d.toDateString()
-        }),
-        currentDate: state.currentDate
-    }
-}, { filterArticleByDate })((accordion(ArticleListOrigin) as any));
+    return filterArticleSelector(state);
+}, { setCurrentDate })((accordion(ArticleListOrigin) as any));
