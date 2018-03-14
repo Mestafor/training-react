@@ -5,7 +5,7 @@ import CommentForm from './CommentForm';
 
 import { connect } from 'react-redux';
 
-import {commentsSelector} from '../../selectors/index';
+import { commentsSelector } from '../../selectors/index';
 
 interface ICommentList {
     isOpen: boolean;
@@ -17,8 +17,8 @@ const CommentListOrigin = (props: ICommentList) => {
     if (!props.comments) return '';
     let comment = <>
         <ul>
-            {props.comments.map((comment, index) => (
-                <Comment key={comment.id} comment={comment} />
+            {Object.keys(props.comments).map((key: any, index) => (
+                <Comment key={key} comment={props.comments[key]} />
             ))}
         </ul>
         <CommentForm />
@@ -29,12 +29,6 @@ const CommentListOrigin = (props: ICommentList) => {
             {props.isOpen ? comment : ''}
         </>
     );
-
-    // return <ul>
-    //     {props.comments.map(comment => (
-    //         <Comment key={comment.id} comment={comment} />
-    //     ))}
-    // </ul>
 };
 
 export const CommentList = connect((state: any) => {

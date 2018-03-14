@@ -19,7 +19,6 @@ export const filterArticleSelector = createSelector(articlesGetter, currentDateG
 const commentsGetter = (state:any) => state.comments;
 
 export const commentsSelector = createSelector(commentsGetter, (comments: any) => {
-    console.log('comments add');
     return {
         comments
     }
