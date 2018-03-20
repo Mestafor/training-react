@@ -1,4 +1,4 @@
-import {INCREMENT, DECREMENT, DELETE_ARTICLE, FILTER_ARTICLE_BY_DATA, SET_DATE} from './constants';
+import {INCREMENT, DECREMENT, DELETE_ARTICLE, FILTER_ARTICLE_BY_DATA, SET_DATE, ADD_COMMENT} from './constants';
 
 export function increment() {
     return {
@@ -35,6 +35,15 @@ export function setCurrentDate(date:any) {
         type: SET_DATE,
         payload: {
             date
+        }
+    }
+}
+
+export function addComment(comment:any) {
+    return {
+        type: ADD_COMMENT,
+        payload: {
+            comment
         }
     }
 }

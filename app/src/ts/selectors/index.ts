@@ -8,7 +8,7 @@ export const filterArticleSelector = createSelector(articlesGetter, currentDateG
     console.log('filterArticleSelector');
     console.log(articles, currentDate);
     return {
-        articles: articles.filter((article: any) => {
+        articles: Object.values(articles).filter((article: any) => {
             return currentDate ? moment(article.date)._d.toDateString() === currentDate._d.toDateString() : article;
         }),
         currentDate: currentDate
